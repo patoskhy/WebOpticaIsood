@@ -2,7 +2,7 @@
     if (!ISSET($_GET["tipo"])) {
         $_GET["tipo"] = "000001";
     }
-    $dt = parse_ini_file("data.ini");
+
     include("sistemaWS/includes/phpdbc.min.php");
     require_once("sistemaWS/config/vars.php");
 
@@ -63,7 +63,7 @@
     <div class="col-md-10">
         <div class="customer-logos">
         <?php foreach($result as $row){ ?>
-            <div class="slide"><a href="catalogo.php?tipo=000001&marca=<?=$row["CODIGO"]?>"><img src="/SistemaOptica/web<?=$row["IMG"]?>"></a></div>
+            <div class="slide"><a href="catalogo.php?tipo=000001&marca=<?=$row["CODIGO"]?>"><img src="<?=$dt['gen.sistema'].$row["IMG"]?>"></a></div>
         <?php } ?>
         </div>
     </div>
