@@ -1,4 +1,4 @@
-<div class="navbar-wrapper" style="z-index:999">
+<div class="navbar-wrapper" style="z-index:900">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">     
             <div class="navbar-header">
