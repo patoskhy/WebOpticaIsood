@@ -17,6 +17,7 @@
         <link href="css/carousel.css" rel="stylesheet">
         <link href="css/bootstrap-select.min.css" rel="stylesheet">
         <link href="<?=$dt["gen.estilos"]?>" rel="stylesheet">
+       
     </head>
     <body>
         <div id="fb-root"></div>
@@ -29,6 +30,13 @@
             fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));  
         </script>
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        
+        </div>
         <?php include_once("web/navbar.php");?>
         <?php include_once("web/cabezera.php");?>
         <?php include_once("web/container.php");?>
@@ -53,6 +61,12 @@
         <script src="js/holder.min.js"></script>
         <script src="js/velocity.js"></script>
         <script src="js/ie10-viewport-bug-workaround.js"></script>
-        <script src="js/bootstrap-select.min.js"></script>
+        <script src="js/bootstrap-select.min.js"></script>.<script>
+            $(document).ready(function() {
+                setTimeout(function(){
+                    $('body').addClass('loaded');
+                }, 1000);
+            });
+        </script>
     </body>
 </html>
