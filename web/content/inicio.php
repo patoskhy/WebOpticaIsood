@@ -102,8 +102,8 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <div class="text-center">
-            <img src="img/web/mediospago.jpg" class="text-center" >
+        <div class="text-center" align="center">
+            <img src="img/web/mediospago.jpg" style="max-width: 100%; height: auto;" align="middle" >
         </div>
     </div>
     </div>
