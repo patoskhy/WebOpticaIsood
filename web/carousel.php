@@ -8,7 +8,7 @@
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <a href="optica.php" style="text-decoration:none;">
-                <img class="first-slide" src="<?=$dt["car.first.slide"]?>" style="width: 100% !important; height: 100% !important" alt="First slide">
+                <img class="first-slide" src="<?=$dt["car.first.slide"]?>" class="img-responsive" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="teaser-circle teaser-circle-green remove-mobile" > 
@@ -27,7 +27,7 @@
         </div>
         <div class="item">
             <a href="catalogo.php?tipo=000002" style="text-decoration:none;">
-                <img class="second-slide" src="<?=$dt["car.second.slide"]?>" style="width: 100% !important; height: 100% !important" alt="Second slide">
+                <img class="second-slide" src="<?=$dt["car.second.slide"]?>" class="ing-responsive" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="teaser-circle teaser-circle-blue remove-mobile" > 
@@ -46,7 +46,7 @@
         </div>
         <div class="item">
             <a href="catalogo.php?tipo=000001" style="text-decoration:none;">
-                <img class="third-slide" src="<?=$dt["car.third.slide"]?>" style="width: 100% !important; height: 100% !important" alt="Third slide">
+                <img class="third-slide" src="<?=$dt["car.third.slide"]?>" class="ing-responsive" alt="Third slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="teaser-circle teaser-circle-green remove-mobile" > 
@@ -65,7 +65,7 @@
         </div>
         <div class="item">
             <a href="atencion.php" style="text-decoration:none;">
-                <img class="forth-slide" src="<?=$dt["car.forth.slide"]?>" style="width: 100% !important; height: 100% !important" alt="Forth slide">
+                <img class="forth-slide" src="<?=$dt["car.forth.slide"]?>" class="ing-responsive" alt="Forth slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="teaser-circle teaser-circle-green remove-mobile" > 

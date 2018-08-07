@@ -29,7 +29,7 @@
 				</div>
 				<div class="footer-col col-md-4">
 					<h2>Contacto</h2>
-					<p>Formulario de contacto <a href="optica.php#contacto">aquí</a>.</p>
+					<p><a href="optica.php#contacto" class="footer">Formulario de contacto aquí</a>.</p>
 				</div>
 			</div>
 		</div>

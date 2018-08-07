@@ -142,6 +142,11 @@ footer .footer-col {
     margin-bottom: 50px
 }
 
+footer .footer-col>p>a {
+    color: #fff;
+    text-decoration: none;
+}
+
 footer .footer-below {
     padding: 25px 0;
     background-color: #CC4D00
@@ -590,7 +595,7 @@ footer .footer-below {
     background: white;
     width: 200px;
     margin: 0 auto;
-    z-index: 900;
+    z-index: 800;
     position: inherit;
 }
 
@@ -599,6 +604,7 @@ footer .footer-below {
     cursor: default;
     font-weight: bolder;
     font-size: 16px;
+    z-index: 900;
 }
 
 .tit-inicio .linea {
@@ -847,8 +853,12 @@ footer .footer-below {
 }
 
 .navbar-inverse:hover {
-    background-color: background-color: rgba(255, 96, 0, 1);
+    background-color: rgba(255, 96, 0, 1);
     border-bottom: 5px solid #CC4D00;
+}
+
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #CC4D00;
 }
 
 .navbar-inverse .navbar-brand {
@@ -917,13 +927,30 @@ footer .footer-below {
 #loader {
     display: block;
     position: relative;
-    left: 50%;
-    top: 50%;
+    left: 45%;
+    top: 45%;
     width: 150px;
     height: 150px;
-    z-index: 1001;
+    z-index: 99999;
     background: url(../img/web/icono-isood2.png) center center no-repeat;
     background-size: 35%;
+}
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 767px) {
+    #loader {
+        display: block;
+        position: relative;
+        left: 30%;
+        top: 30%;
+        width: 150px;
+        height: 150px;
+        z-index: 99999;
+        background: url(../img/web/icono-isood2.png) center center no-repeat;
+        background-size: 35%;
+    }
 }
 
 #loader:before {

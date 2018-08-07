@@ -30,7 +30,7 @@
             fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));  
         </script>
-        <div id="loader-wrapper">
+         <div id="loader-wrapper">
             <div id="loader"></div>
         
             <div class="loader-section section-left"></div>
@@ -39,7 +39,9 @@
         </div>
         <?php include_once("web/navbar.php");?>
         <?php include_once("web/cabezera.php");?>
-        <?php include_once("web/container.php");?>
+        <div  class="container-fluid">
+            <?php include_once("web/container.php");?>
+        </div>
         <?php include_once("web/footer.php");?>
         <div class="modal modal-danger fade" id="myModal" >
             <div class="modal-dialog">
@@ -50,7 +52,7 @@
                     </div>
                     <div id="modColBody" class="modal-body" style="background-color: white !important; color: black !important">
                         <p id="modBody"></p>
-                     </div>
+                    </div>
                 </div> 
             </div>
         <div>
@@ -61,6 +63,7 @@
         <script src="js/holder.min.js"></script>
         <script src="js/velocity.js"></script>
         <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script src="js/bootstrap-select.min.js"></script>
         <script src="js/bootstrap-select.min.js"></script>.<script>
             $(document).ready(function() {
                 setTimeout(function(){
