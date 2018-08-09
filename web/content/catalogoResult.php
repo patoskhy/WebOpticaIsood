@@ -40,7 +40,7 @@
     $db->setConection($config->host, $config->usuario, $config->contrasenia, $config->bd, "PDO");
     $db->conectar();
 
-    $SELECT = "SELECT PRO.CODIGO,PRO.DESCRIPCION AS DES_PRO,PRO.VALOR,MAR.DESCRIPCION DES_MAR,PRO.MODELO,PRO.FOTO1,PRO.FOTO2 ";
+    $SELECT = "SELECT PRO.CODIGO,PRO.DESCRIPCION AS DES_PRO,PRO.VALOR,MAR.DESCRIPCION DES_MAR,PRO.MODELO,PRO.FOTO1,PRO.FOTO2, PRO.COD_FORMA, PRO.COD_COLOR, PRO.COD_MATERIAL, PRO.COD_MARCA, PRO.COD_TIPO ";
     $SELECT = $SELECT . "FROM brc_producto_web PRO ";
     $SELECT = $SELECT . "INNER JOIN brc_codigos_web MAR ON MAR.TIPO = 'MARCA' AND MAR.CODIGO = PRO.COD_MARCA ";
     $SELECT = $SELECT . "WHERE COD_TIPO='".$tipoP."' AND PRO.VIGENCIA = 'S'";
@@ -125,14 +125,24 @@
             for($i = 0; $i < $num_total_registros; $i++) { ?>   
     
                 <div class="col-md-3 text-center product-item">
-                    <div class="contenedorImg">
-                        <img src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=2" />
-                        <img class="top" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=1" />
+                    <div class="link-product">
+                        <img class="image-results" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=1" />
+                        <img class="image-results" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=2" />
                     </div>
                     <p class="product-name-results"><?= $campos[$i]["DES_MAR"] ?><p>
-                    <p class="product-code-results"><?= $campos[$i]["CODIGO"] ?><p>
+					<p class="product-model-results"><?= $campos[$i]["MODELO"] ?><p>
                     <p class="product-price-results">CLP$ <?= $campos[$i]["VALOR"] ?>.-<p>
-                    <a onclick="javascript:CargaDetalle('<?= $campos[$i]["CODIGO"] ?>','<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>');return false;" href="#" style="text-decoration:none;">Detalle >></a>
+					<p class="product-code-results"><?= $campos[$i]["CODIGO"] ?><p>
+                    <a onclick="javascript:CargaDetalle(
+						'<?= $campos[$i]["CODIGO"] ?>',
+						'<?= $tipoP ?>','<?= $MarcasP ?>',
+						'<?= $MaterialP ?>',
+						'<?= $FormasP ?>',
+						'<?= $ColoresP ?>',
+						'<?= $campos[$i]["COD_MARCA"] ?>',
+						'<?= $campos[$i]["COD_MATERIAL"] ?>',
+						'<?= $campos[$i]["COD_FORMA"] ?>',
+						'<?= $campos[$i]["COD_COLOR"] ?>');return false;" href="#" style="text-decoration:none;">Detalle >></a>
                 </div>
                 <?php if($num_total_registros == 1) { ?>
                     <div class="col-md-9"></div>

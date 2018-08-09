@@ -28,6 +28,25 @@
          $ColoresP = "ALL";
      }
  
+	$MarcasB = trim($_POST["marcaB"]);
+     if (!ISSET($_POST["marcaB"])) {
+         $MarcasB = "ALL";
+     }
+ 
+     $MaterialB = trim($_POST["materialB"]);
+     if (!ISSET($_POST["materialB"])) {
+         $MaterialB = "ALL";
+     }
+     $FormasB = trim($_POST["formaB"]);
+     if (!ISSET($_POST["formaB"])) {
+         $FormasB = "ALL";
+     }
+ 
+     $ColoresB = trim($_POST["colorB"]);
+     if (!ISSET($_POST["colorB"])) {
+         $ColoresB = "ALL";
+     }
+ 
      $dt = parse_ini_file("../../data.ini");
     include("../../sistemaWS/includes/phpdbc.min.php");
     require_once("../../sistemaWS/config/vars.php");
@@ -43,7 +62,12 @@
     $SELECT = $SELECT . "INNER JOIN brc_codigos_web MAT ON MAT.TIPO = 'MATERIAL' AND MAT.CODIGO = PRO.COD_MATERIAL ";
     $SELECT = $SELECT . "INNER JOIN brc_codigos_web COL ON COL.TIPO = 'COLOR' AND COL.CODIGO = PRO.COD_COLOR ";
     $SELECT = $SELECT . "INNER JOIN brc_codigos_web FORM ON FORM.TIPO = 'FORMA' AND FORM.CODIGO = PRO.COD_FORMA ";
-    $SELECT = $SELECT . "WHERE PRO.CODIGO='".$detP."' AND PRO.VIGENCIA = 'S'";
+    $SELECT = $SELECT . "WHERE PRO.CODIGO='".$detP."' AND PRO.VIGENCIA = 'S' ";
+	$SELECT = $SELECT . "AND PRO.COD_TIPO='".$tipoP."' ";
+	$SELECT = $SELECT . "AND PRO.COD_MARCA='".$MarcasB."' ";
+	$SELECT = $SELECT . "AND PRO.COD_MATERIAL='".$MaterialB."' ";
+	$SELECT = $SELECT . "AND PRO.COD_COLOR='".$ColoresB."' ";
+	$SELECT = $SELECT . "AND PRO.COD_FORMA='".$FormasB."' ";
 
     $db->query($SELECT);
     $result = $db->datos();

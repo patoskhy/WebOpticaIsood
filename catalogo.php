@@ -42,7 +42,7 @@
         });
     }
 
-    function CargaDetalle(codigo,tipo,marca,material,forma,color){
+    function CargaDetalle(codigo,tipo,marca,material,forma,color,marcaB,materialB,formaB,colorB){
          $.ajax({
                 data:  {
                     "det": codigo,
@@ -50,7 +50,11 @@
                     "marca" : marca.trim(),
                     "material" : material.trim(),
                     "forma" : forma.trim(),
-                    "color" : color.trim()
+                    "color" : color.trim(),
+					"marcaB" : marcaB.trim(),
+                    "materialB" : materialB.trim(),
+                    "formaB" : formaB.trim(),
+                    "colorB" : colorB.trim()
                 },
                 url:   'web/content/catalogoDetalle.php',
                 type:  'post',
