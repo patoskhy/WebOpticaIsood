@@ -61,7 +61,6 @@ $mail->Password = $config->pass;
 $mail->From = $config->from;	
 $mail->FromName = $config->fromName;
 $mail->AddAddress($config->mailAdmin1,$config->mailAdminName1);
-$mail->AddAddress($config->mailAdmin2,$config->mailAdminName2);
 $mail->Subject = $asunto;
 $mail->Body = $body;
 //Para adjuntar archivo
