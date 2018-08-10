@@ -46,7 +46,7 @@
         <form>
             <div class="form-group">
                 <label for="marca">Marcas</label><br>
-                <select name="marca" id="marca" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-danger">
+                <select name="marca" id="marca" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
                     <option <?= ($_GET["marca"] == "ALL")? "selected='selected'": "" ?> value="ALL">TODAS</option> 
                     <?php foreach ($Marcas as $clave) { ?>
                         <option <?= ($_GET["marca"] == $clave["CODIGO"])? "selected='selected'": "" ?> value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
@@ -55,7 +55,7 @@
             </div>
             <div class="form-group">
                 <label for="material">Material</label><br>
-                <select name="material" id="material" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-danger">
+                <select name="material" id="material" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
                     <option value="ALL">TODOS</option> 
                     <?php foreach ($Material as $clave) { ?>
                         <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
@@ -64,7 +64,7 @@
             </div>
             <div class="form-group">
                 <label for="forma">Formas</label><br>
-                <select name="forma" id="forma" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-danger">
+                <select name="forma" id="forma" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
                     <option value="ALL">TODAS</option> 
                     <?php foreach ($Formas as $clave) { ?>
                         <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
@@ -73,7 +73,7 @@
             </div>
             <div class="form-group">
                 <label for="color">Colores</label><br>
-                <select name="color" id="color" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-danger">
+                <select name="color" id="color" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
                     <option value="ALL">TODOS</option> 
                     <?php foreach ($Colores as $clave) { ?>
                         <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    

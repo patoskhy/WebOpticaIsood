@@ -45,7 +45,7 @@
             <label for="comments">Comentarios:</label>
             <textarea name="comments" id="comments"  class="form-control" placeholder="En que puedo ayudarle?"></textarea>
         </div>
-		<button type="button" class="btn btn-danger" name="enviar" id="enviar" value="Enviar">Enviar</button>
+		<button type="button" class="btn btn-sistema" name="enviar" id="enviar" value="Enviar">Enviar</button>
 	</div>
 	<div class="col-md-5">
         <h2 style="font-weight: bold;">UBICACIÓN</h2>

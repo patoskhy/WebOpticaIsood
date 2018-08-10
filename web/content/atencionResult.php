@@ -73,7 +73,7 @@ if(count($Dias) > 0){
 
                 <div class="form-group">
                     <label for="dia">DÍA:</label><br>
-                    <select name="dia" id="dia" data-style="btn-danger">
+                    <select name="dia" id="dia" data-style="btn-sistema">
                         <option value="">Seleccione un día</option> 
                         <?php foreach ($Dias as $clave) { ?>
                             <option <?= ($clave["DIA"] == $diaP) ? 'selected' : '' ?> value="<?= $clave["DIA"] ?>"><?= $clave["DIA_FORMAT"] ?></option>    
@@ -82,7 +82,7 @@ if(count($Dias) > 0){
                 </div>
                 <div id="docBox" class="form-group">
                     <label for="doc">DOCTOR:</label><br>
-                    <select name="doc" id="doc" class="selectpicker" data-style="btn-danger">
+                    <select name="doc" id="doc" class="selectpicker" data-style="btn-sistema">
                         <option value="0">Seleccione un doctor</option> 
                         <?php foreach ($doctores as $clave) { ?>
                             <option <?= ($clave["RUT_DOCTOR"] == $docP) ? 'selected' : '' ?> value="<?= $clave["RUT_DOCTOR"] ?>"><?= $clave["NOMBRE"] ?></option>    
@@ -91,7 +91,7 @@ if(count($Dias) > 0){
                 </div>
                 <div id="horBox" class="form-group">
                     <label for="hor">HORA:</label><br>
-                    <select name="hor" id="hor" class="selectpicker" data-style="btn-danger">
+                    <select name="hor" id="hor" class="selectpicker" data-style="btn-sistema">
                         <option value="0">Seleccione una hora</option> 
                         <?php foreach ($horas as $clave) { ?>
                             <option <?= ($clave["HORA"] == $horP) ? 'selected' : '' ?> value="<?= $clave["HORA"] ?>"><?= $clave["HORA_FORMAT"] ?></option>    
@@ -107,11 +107,11 @@ if(count($Dias) > 0){
                 <div class="col-md-4">
                     <label class="label label-default" for="rut">RUT:</label>
                     <input type="text" <?= ($rutP != "0-0") ? 'value="'.$rutP.'"' : '' ?> <?= ($rutP != "0-0") ? 'disabled="disabled"' : '' ?> id="rut" class="form-control" name="rut" size="12" maxlength="12" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="00000000-K">
-                    <input type="hidden" name="rutS" value="<?= $rutP ?>">
+                    <input type="hidden" name="rutS" id="rutS" value="<?= $rutP ?>">
                 </div>
                 <div class="col-md-2">
                     <br>
-                <button type="submit" class="btn btn-danger" id="buscar-button" name="buscar-button">BUSCAR</button>
+                <button type="submit" class="btn btn-sistema" id="buscar-button" name="buscar-button">BUSCAR</button>
                 </div>
                 <div class="col-md-6"></div>
             </div>
@@ -121,9 +121,8 @@ if(count($Dias) > 0){
                 <div class="col-md-12">
                     <p style="font-size: 16px">Estimad@ <?= $paciente[0]["NOMBRE"]?> sus datos se encuentran en nuestras bases de datos. Presione <strong>CONFIRMAR</strong> si desea confirmar su hora.</p>
                     <br>
-                <button type="button" class="btn btn-danger" id="confirmar-button" name="confirmar-button">CONFIRMAR</button>
+                    <button type="button" class="btn btn-sistema" id="confirmar-button" name="confirmar-button">CONFIRMAR</button>
                 </div>
-                <div class="col-md-6"></div>
             </div>
             <!-- nuevo -->
             <div id="nueCliBox" >
@@ -142,7 +141,7 @@ if(count($Dias) > 0){
                 <div class="row">
                     <div class="col-md-6">
                         <label class="label label-default" for="fono">TELÉFONO:</label>
-                        <input type="text" id="fono" class="form-control" name="fono" size="25" maxlength="25" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese un n° telefónico">
+                        <input type="text" id="fono" class="form-control fono" name="fono" size="25" maxlength="25" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese un n° telefónico">
                     </div>
                     <div class="col-md-6">
                         <label class="label label-default" for="mail">E-MAIL:</label>
@@ -152,13 +151,13 @@ if(count($Dias) > 0){
                 <br>
                 <p style="font-size: 16px">Estimad@ cliente necesitamos que ingrese sus datos para reservar su hora. Presione <strong>CONFIRMAR</strong> para guardar la reserva.</p>
                 <br>
-                <button type="button" class="btn btn-danger" id="guardar-button" name="guardar-button">CONFIRMAR</button>
+                <button type="button" class="btn btn-sistema" id="guardar-button" name="guardar-button">CONFIRMAR</button>
             </div>
             <!-- buscar -->
             <div id="conCliBox" class="row">
                 <div class="col-md-12">
                     <br>
-                    <p style="font-size: 16px">Estimad@ <?= $consulta[0]["NOMBRE"]?> usted tiene una reserva para las <?= $consulta[0]["HORA_FORMAT"]?>.</p>
+                    <p style="font-size: 16px">Estimad@ <?= $consulta[0]["NOMBRE"]?> usted tiene una reserva para el dia <?=$diaP?> a partir de las <?=$horP?>  </p>
                 </div>
             </div>
         </div>

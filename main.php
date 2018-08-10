@@ -64,7 +64,8 @@
         <script src="js/velocity.js"></script>
         <script src="js/ie10-viewport-bug-workaround.js"></script>
         <script src="js/bootstrap-select.min.js"></script>
-        <script src="js/bootstrap-select.min.js"></script>.<script>
+        <script src="js/jquery.mask.js"></script>
+        <script>
             $(document).ready(function() {
                 setTimeout(function(){
                     $('body').addClass('loaded');

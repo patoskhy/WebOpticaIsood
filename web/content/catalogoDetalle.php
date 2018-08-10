@@ -105,7 +105,7 @@
                 <p><?= $result[0]["DES_MAT"]?></p><br>
                 <label for="">Forma:</label><br>
                 <p><?= $result[0]["DES_FOR"]?></p><br>
-                <a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>');return false;" href="#" class="btn btn-danger" >volver</a>
+                <a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>');return false;" href="#" class="btn btn-sistema" >volver</a>
             </div>
          </div>
     </div>
