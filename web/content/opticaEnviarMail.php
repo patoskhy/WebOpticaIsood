@@ -27,7 +27,7 @@ if (!ISSET($_POST["comments"])) {
     $comments = "";
 }
 
-$asunto = "Contacto a Óptica Beraca";
+$asunto = "Contacto a ".$config->fromName;
 $body = ' 
 <html> 
 <head>
