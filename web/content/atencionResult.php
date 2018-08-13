@@ -32,21 +32,21 @@
     $db->conectar();
     // buscar dias con atencion
     $SELECT = "SELECT DISTINCT DIA, CONCAT( SUBSTRING(DIA,7, 2),'/',SUBSTRING(DIA,5, 2), '/' ,SUBSTRING(DIA,1, 4)) AS DIA_FORMAT ";
-    $SELECT = $SELECT . "FROM brc_operativos WHERE DIA > SUBSTRING(REPLACE(CONVERT(NOW() USING latin1), '-', ''),1,8)";  
+    $SELECT = $SELECT . "FROM brc_operativos WHERE DIA > SUBSTRING(REPLACE(CONVERT(NOW() USING latin1), '-', ''),1,8) AND TIPO_OPERATIVO = 'O00001'";  
     $db->query($SELECT);
     $Dias = $db->datos();
     
     // doctores segun el dia
     $SELECT = "SELECT DISTINCT RUT_DOCTOR, NOMBRE ";
     $SELECT = $SELECT . "FROM brc_operativos INNER JOIN brc_persona ON RUT_DOCTOR = RUT ";
-    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "'  AND CAT_PERSONA = 'P00002'";
+    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "'  AND CAT_PERSONA = 'P00002' AND TIPO_OPERATIVO = 'O00001'";
     $db->query($SELECT);
     $doctores = $db->datos();
 
     // horas de segun el dia y doctor
     $SELECT = "SELECT DISTINCT HORA, CONCAT(SUBSTRING(HORA,1,2),':',SUBSTRING(HORA,3,2)) as HORA_FORMAT ";
     $SELECT = $SELECT . "FROM brc_operativos INNER JOIN brc_persona ON RUT_DOCTOR = RUT ";  
-    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "' AND RUT_DOCTOR = ".$docP." AND CAT_PERSONA = 'P00002'";
+    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "' AND RUT_DOCTOR = ".$docP." AND CAT_PERSONA = 'P00002' AND TIPO_OPERATIVO = 'O00001'";
     $db->query($SELECT);
     $horas = $db->datos();
 
@@ -58,8 +58,9 @@
     
     //si el paciente tiene una hora asignada segun dia y hora
     $SELECT = "SELECT DISTINCT NOMBRE,CONCAT(SUBSTRING(HORA_PACIENTE,1,2),':',SUBSTRING(HORA_PACIENTE,3,2)) as HORA_FORMAT ";
-    $SELECT = $SELECT . "FROM brc_operativos_detalle INNER JOIN brc_persona ON 	RUT_CLIENTE = RUT ";  
-    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "' AND 	RUT_CLIENTE = ".$rutVar[0]." AND HORA='".$horP."'  AND CAT_PERSONA = 'P00001'";
+    $SELECT = $SELECT . "FROM brc_operativos O1 INNER JOIN brc_operativos_detalle O2 ON O1.DIA = O2.DIA AND O1.HORA = O2.HORA AND O1.RUT_DOCTOR = O2.RUT_DOCTOR";  
+    $SELECT = $SELECT . " INNER JOIN brc_persona ON RUT_CLIENTE = RUT ";  
+    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "' AND 	RUT_CLIENTE = ".$rutVar[0]." AND HORA='".$horP."'  AND CAT_PERSONA = 'P00001'  AND TIPO_OPERATIVO = 'O00001'";
     $db->query($SELECT);
     $consulta = $db->datos();
     
