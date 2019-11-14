@@ -1,4 +1,17 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="remove-pantalla" >
+	<div class="row" style="margin-top:90px; ">
+        <div class="col-md-12" style="text-align: center;">
+			<h1 class="texto-cabezera-der" style="position: static;"><?=$dt["gen.title"]?></h1>
+		</div>
+	</div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-lg-12">
+            <img style="width:100%;" src="img/web/banner-2-.jpg">
+		</div>
+	</div>
+	<br><br>
+</div>
+<div id="myCarousel" class="carousel slide remove-mobile" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>

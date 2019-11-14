@@ -125,6 +125,12 @@ body {
     }
 }
 
+@media only screen and (min-width: 767px) {
+    .remove-pantalla {
+        display: none;
+    }
+}
+
 footer {
     color: #fff
 }
