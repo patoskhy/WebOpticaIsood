@@ -5,7 +5,8 @@
 				<div class="footer-col col-md-4">
 					<h2>Ubicación</h2>
 					<p><?=$dt["ub.direccion"]?>
-					<br><?=$dt["ub.ciudad"]?></p>
+					<br><?=$dt["ub.ciudad"]?>
+					<br><?=$dt["ub.telefono"]?></p>
 				</div>
 				<div class="footer-col col-md-4">
 					<h2>Redes Sociales</h2>

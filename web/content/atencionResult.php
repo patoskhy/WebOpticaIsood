@@ -60,9 +60,11 @@
     $SELECT = "SELECT DISTINCT NOMBRE,CONCAT(SUBSTRING(HORA_PACIENTE,1,2),':',SUBSTRING(HORA_PACIENTE,3,2)) as HORA_FORMAT ";
     $SELECT = $SELECT . "FROM brc_operativos O1 INNER JOIN brc_operativos_detalle O2 ON O1.DIA = O2.DIA AND O1.HORA = O2.HORA AND O1.RUT_DOCTOR = O2.RUT_DOCTOR";  
     $SELECT = $SELECT . " INNER JOIN brc_persona ON RUT_CLIENTE = RUT ";  
-    $SELECT = $SELECT .  "WHERE DIA = '" . $diaP . "' AND 	RUT_CLIENTE = ".$rutVar[0]." AND HORA='".$horP."'  AND CAT_PERSONA = 'P00001'  AND TIPO_OPERATIVO = 'O00001'";
+    $SELECT = $SELECT .  "WHERE O1.DIA = '" . $diaP . "' AND 	RUT_CLIENTE = ".$rutVar[0]." AND O1.HORA='".$horP."'  AND CAT_PERSONA = 'P00001'  AND TIPO_OPERATIVO = 'O00001'";
+    //var_dump($SELECT);die();
     $db->query($SELECT);
     $consulta = $db->datos();
+    
     
 ?>
 <?php

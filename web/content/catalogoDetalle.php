@@ -46,7 +46,10 @@
      if (!ISSET($_POST["colorB"])) {
          $ColoresB = "ALL";
      }
- 
+     $pagina = 1;
+     if (ISSET($_POST["pagina"])) {
+        $pagina = trim($_POST["pagina"]);
+     }
      $dt = parse_ini_file("../../data.ini");
     include("../../sistemaWS/includes/phpdbc.min.php");
     require_once("../../sistemaWS/config/vars.php");
@@ -79,22 +82,20 @@
 </div>
 <br>
 <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
+    <div class="col-md-12">
          <div class="row">
             <div class="col-md-4">
-                <img style="height: 150px; weight: 150px;" src="comun/muestraImagen.php?cod=<?= $detP ?>&img=1" />
+                <img class="img-responsive" src="comun/muestraImagen.php?cod=<?= $detP ?>&img=1" />
             </div>
             <div class="col-md-4">
                 <label for="">Código:</label><br>
                 <p><?= $result[0]["CODIGO"]?></p><br>
-                <label for="">Precio:</label><br>
-                <p><?= $result[0]["VALOR"]?></p><br>
                 <label for="">Modelo:</label><br>
                 <p><?= $result[0]["MODELO"]?></p><br>
                 <label for="">Color:</label><br>
                 <p><?= $result[0]["DES_COL"]?></p><br>
-                
+                <label for="">Forma:</label><br>
+                <p><?= $result[0]["DES_FOR"]?></p><br>
             </div>
             <div class="col-md-4">
                 <label for="">Descripción:</label><br>
@@ -103,11 +104,9 @@
                 <p><?= $result[0]["DES_MAR"]?></p><br>
                 <label for="">Material:</label><br>
                 <p><?= $result[0]["DES_MAT"]?></p><br>
-                <label for="">Forma:</label><br>
-                <p><?= $result[0]["DES_FOR"]?></p><br>
-                <a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>');return false;" href="#" class="btn btn-sistema" >volver</a>
+                <a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>','<?= $pagina ?>');return false;" href="#" class="btn btn-sistema" >volver</a>
             </div>
          </div>
     </div>
-    <div class="col-md-1"></div>
+
 </div>
