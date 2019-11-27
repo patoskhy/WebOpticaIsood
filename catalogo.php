@@ -59,10 +59,22 @@
                 url:   'web/content/catalogoDetalle.php',
                 type:  'post',
                 beforeSend: function () {
-                        $("#catalogoResult").html("Procesando, espere por favor...");
+
+                        //$("#catalogoResult").html("Procesando, espere por favor...");
                 },
                 success:  function (response) {
-                        $("#catalogoResult").html(response);
+                        //$("#catalogoResult").html(response);
+                        res = JSON.parse(response)
+                        $("#detTitulo").html(res[0].DES_MAR);
+                        $("#detCodigo").html(res[0].CODIGO);
+                        $("#detModelo").html(res[0].MODELO);
+                        $("#detColor").html(res[0].DES_COL);
+                        $("#detForma").html(res[0].DES_FOR);
+                        $("#detDescripcion").html(res[0].DES_PRO);
+                        $("#detMarca").html(res[0].DES_MAR);
+                        $("#detMaterial").html(res[0].DES_MAT);
+                        $("#detImg").attr("src", "comun/muestraImagen.php?cod="+ res[0].CODIGO +"&img=2")
+                        $("#detalleModal").modal();
                 }
         });
     }

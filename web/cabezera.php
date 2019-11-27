@@ -3,7 +3,7 @@
         case "catalogo":
         /*cabezera de catalago*/
 ?>
-            <div class="container" style="margin-top:70px;">
+            <div class="container-fluid" style="margin-top:70px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <img style="width:100%; " src="img/web/img<?= ( $_GET["tipo"] == "000001" ? "2" : "5" )?>.jpg">
@@ -17,7 +17,7 @@
         case "optica":
         /*cabezera de optica*/
 ?> 
-            <div class="container" style="margin-top:70px;">
+            <div class="container-fluid" style="margin-top:70px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <img style="width:100%;" src="img/web/img3.jpg">
@@ -31,7 +31,7 @@
         case "atencion":
         /*cabezera de atencion*/
 ?>
-            <div class="container" style="margin-top:70px;">
+            <div class="container-fluid" style="margin-top:70px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <img style="width:100%;" src="img/web/img4.jpg">
@@ -45,7 +45,7 @@
         case "convenio":
             /*cabezera de atencion*/
     ?>
-                <div class="container" style="margin-top:70px;">
+                <div class="container-fluid" style="margin-top:70px;">
                     <div class="row">
                         <div class="col-lg-12">
                             <img style="width:100%;" src="img/web/img1.jpg">
@@ -59,7 +59,7 @@
         case "promocion":
             /*cabezera de atencion*/
     ?>
-                <div class="container" style="margin-top:70px;">
+                <div class="container-fluid" style="margin-top:70px;">
                     <div class="row">
                         <div class="col-lg-12">
                             <img style="width:100%;" src="img/web/img6.png">
@@ -73,7 +73,7 @@
         case "historia":
             /*cabezera de atencion*/
     ?>
-                <div class="container" style="margin-top:70px;">
+                <div class="container-fluid" style="margin-top:70px;">
                     <div class="row">
                         <div class="col-lg-12">
                             <img style="width:100%;" src="img/web/img7.jpg">

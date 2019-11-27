@@ -36,62 +36,104 @@
     $Colores = $db->datos();
 ?>
 
-<div class="tit-inicio">
-    <div class="linea"> </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-        <form>
-            <div class="form-group">
-                <label for="marca">Marcas</label><br>
-                <select name="marca" id="marca" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
-                    <option <?= ($_GET["marca"] == "ALL")? "selected='selected'": "" ?> value="ALL">TODAS</option> 
-                    <?php foreach ($Marcas as $clave) { ?>
-                        <option <?= ($_GET["marca"] == $clave["CODIGO"])? "selected='selected'": "" ?> value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
-                    <?php } ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="material">Material</label><br>
-                <select name="material" id="material" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
-                    <option value="ALL">TODOS</option> 
-                    <?php foreach ($Material as $clave) { ?>
-                        <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
-                    <?php } ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="forma">Formas</label><br>
-                <select name="forma" id="forma" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
-                    <option value="ALL">TODAS</option> 
-                    <?php foreach ($Formas as $clave) { ?>
-                        <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
-                    <?php } ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="color">Colores</label><br>
-                <select name="color" id="color" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
-                    <option value="ALL">TODOS</option> 
-                    <?php foreach ($Colores as $clave) { ?>
-                        <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
-                    <?php } ?>
-                </select>
-            </div>
-        </form>
+<div class="fila no-gutters justify-content-center pb-5">
+    <div class="col-md-7 text-center heading-section ftco-animate">
+        <hr class="linea">
+        <span class="subheading">Marcos</span>
     </div>
+</div>
+<div class="text-center heading-section ftco-animate">
+    <div class="row">
+        <div class="col-md-3 text-center">
+                <form>
+                    <div class="form-group">
+                        <label for="marca">Marcas</label><br>
+                        <select name="marca" id="marca" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
+                            <option <?= ($_GET["marca"] == "ALL")? "selected='selected'": "" ?> value="ALL">TODAS</option> 
+                            <?php foreach ($Marcas as $clave) { ?>
+                                <option <?= ($_GET["marca"] == $clave["CODIGO"])? "selected='selected'": "" ?> value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="material">Material</label><br>
+                        <select name="material" id="material" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
+                            <option value="ALL">TODOS</option> 
+                            <?php foreach ($Material as $clave) { ?>
+                                <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="forma">Formas</label><br>
+                        <select name="forma" id="forma" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
+                            <option value="ALL">TODAS</option> 
+                            <?php foreach ($Formas as $clave) { ?>
+                                <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Colores</label><br>
+                        <select name="color" id="color" class="selectpicker" data-size="5" data-live-search="true" data-style="btn-sistema">
+                            <option value="ALL">TODOS</option> 
+                            <?php foreach ($Colores as $clave) { ?>
+                                <option value="<?= $clave["CODIGO"] ?>"><?= $clave["DESCRIPCION"] ?></option>    
+                            <?php } ?>
+                        </select>
+                    </div>
+                </form>
+            </div>
 
-    <div class="col-md-7">
-        <div class="row">
-            <span id="catalogoResult"></span>     
+            <div class="col-md-9">
+                <div class="row">
+                    <span id="catalogoResult"></span>     
+                </div>
+                
+            </div>
+
         </div>
         <div class="row">
             <div class="fb-comments" data-href="<?=$dt["rs.fb.comments"]?>" data-numposts="5"></div>
         </div>
-        
     </div>
-    <div class="col-md-1"></div>
 </div>
 <br>
+<br>
+
+<div class="modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content panel-default ">
+            <div class="modal-header panel-heading text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><span id="detTitulo"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img id="detImg" class="img-responsive" src="" />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Código:</label>
+                        <p><span id="detCodigo"></span></p>
+                        <label for="">Modelo:</label>
+                        <p><span id="detModelo"></span></p>
+                        <label for="">Color:</label>
+                        <p><span id="detColor"></span></p>
+                        <label for="">Forma:</label>
+                        <p><span id="detForma"></span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Descripción:</label>
+                        <p><span id="detDescripcion"></span></p>
+                        <label for="">Marca:</label>
+                        <p><span id="detMarca"></span></p>
+                        <label for="">Material:</label>
+                        <p><span id="detMaterial"></span></p>
+                        <?php /*<a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>','<?= $pagina ?>');return false;" href="#" class="btn btn-sistema" >volver</a> */ ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

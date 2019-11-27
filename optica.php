@@ -6,9 +6,9 @@
        $("#enviar").on("click",function(){
            //telefono - nombre - email - comments 
             v4 = ValidaCampo("comments");
+            v1 = ValidaCampo("telefono");
             v3 = ValidaCampo("email");
             v2 = ValidaCampo("nombre");
-            v1 = ValidaCampo("telefono");
             if(v1===true && v2===true && v3===true && v4===true){
                 EnviarMail();
             }

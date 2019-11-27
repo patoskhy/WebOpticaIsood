@@ -75,38 +75,6 @@
     $db->query($SELECT);
     $result = $db->datos();
     //var_dump($SELECT);
+    echo json_encode($result);
 ?>
 
-<div class="tit-inicio">
-    <div class="linea"> </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-md-12">
-         <div class="row">
-            <div class="col-md-4">
-                <img class="img-responsive" src="comun/muestraImagen.php?cod=<?= $detP ?>&img=1" />
-            </div>
-            <div class="col-md-4">
-                <label for="">Código:</label><br>
-                <p><?= $result[0]["CODIGO"]?></p><br>
-                <label for="">Modelo:</label><br>
-                <p><?= $result[0]["MODELO"]?></p><br>
-                <label for="">Color:</label><br>
-                <p><?= $result[0]["DES_COL"]?></p><br>
-                <label for="">Forma:</label><br>
-                <p><?= $result[0]["DES_FOR"]?></p><br>
-            </div>
-            <div class="col-md-4">
-                <label for="">Descripción:</label><br>
-                <p><?= $result[0]["DES_PRO"]?></p><br>
-                <label for="">Marca:</label><br>
-                <p><?= $result[0]["DES_MAR"]?></p><br>
-                <label for="">Material:</label><br>
-                <p><?= $result[0]["DES_MAT"]?></p><br>
-                <a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>','<?= $pagina ?>');return false;" href="#" class="btn btn-sistema" >volver</a>
-            </div>
-         </div>
-    </div>
-
-</div>

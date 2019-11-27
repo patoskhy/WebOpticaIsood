@@ -1,5 +1,5 @@
 <?php
-    $TAMANO_PAGINACION = 9;
+    $TAMANO_PAGINACION = 12;
 
     $tipoP = trim($_POST["tipo"]);
     if (!ISSET($_POST["tipo"])) {
@@ -81,13 +81,13 @@
 <?php if($num_total_registros > 0 ){ 
     //paginacion
     if ($total_paginas > 1) {
-        echo '<div class="row"> <div class="col-md-12"> <ul class="pagination">';
+        echo '<div class=" text-left col-md-12" style=""> <ul class="pagination ">';
         
         //retrocede 5 paginas
         if(($pagina - 5) > 0){
             $limInf = ($pagina - 5);
             $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina - 5)."'";
-            echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></a></li>';
+            echo '<li><a class="btn-sistema" onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></a></li>';
         }
 
         //retroceder a la pagina anterior
@@ -116,25 +116,27 @@
             $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina + 5)."'";
             echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-right"></span><span class="glyphicon glyphicon-chevron-right"></span></a></li>';
         }
-        echo '</ul></div></div>';
+        echo '</ul></div>';
 	}    
 ?>
 <br>
     <?php 
-         echo '<div class="row">';
+         echo '';
             //resultados
             for($i = 0; $i < $num_total_registros; $i++) { ?>   
     
-                <div class="col-md-3 text-center product-item">
+                <div class="col-md-3 product-item ">
                     <div class="link-product">
-                        <img class="image-results" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=1" />
-                        <img class="image-results" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=2" />
+                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=1" />
+                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=2" />
                     </div>
                     <p class="product-name-results"><?= $campos[$i]["DES_MAR"] ?><p>
 					<p class="product-model-results"><?= $campos[$i]["MODELO"] ?><p>
                     <!--p class="product-price-results">CLP$ <?= $campos[$i]["VALOR"] ?>.-<p-->
-					<p class="product-code-results"><?= $campos[$i]["CODIGO"] ?><p>
-                    <a onclick="javascript:CargaDetalle(
+					<!--p class="product-code-results"><?= $campos[$i]["CODIGO"] ?><p-->
+                    <a  href="#" 
+                        class="link-detalle" 
+                        onclick="javascript:CargaDetalle(
 						'<?= $campos[$i]["CODIGO"] ?>',
 						'<?= $tipoP ?>','<?= $MarcasP ?>',
 						'<?= $MaterialP ?>',
@@ -144,7 +146,8 @@
 						'<?= $campos[$i]["COD_MATERIAL"] ?>',
 						'<?= $campos[$i]["COD_FORMA"] ?>',
 						'<?= $campos[$i]["COD_COLOR"] ?>',
-                        '<?= $pagina ?>');return false;" href="#" style="text-decoration:none;">Detalle >></a>
+                        '<?= $pagina ?>');return false;">Detalle >></a>
+                        
                 </div>
                 <?php if($num_total_registros == 1) { ?>
                     <div class="col-md-9"></div>
@@ -154,18 +157,18 @@
                 <?php } 
      
             } 
-        echo '</div>';
+        echo '';
         //paginacion
         if ($total_paginas > 1) {
-            echo '<div class="row"> <div class="col-md-12"> <ul class="pagination">';
+            echo '<div class=" text-left col-md-12" style=""> <ul class="pagination ">';
             
             //retrocede 5 paginas
             if(($pagina - 5) > 0){
                 $limInf = ($pagina - 5);
                 $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina - 5)."'";
-                echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></a></li>';
+                echo '<li><a class="btn-sistema" onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span></a></li>';
             }
-
+    
             //retroceder a la pagina anterior
             if($pagina > 1){
                 $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina - 1)."'";
@@ -173,7 +176,7 @@
             }
             //muestra paginas
             for ($i=$limInf;$i<=$limSup;$i++) {
-
+    
                 if ($pagina == $i){
                     echo '<li class="disable active"><a href="#">'.$pagina.'</a></li>';
                 }else{
@@ -181,21 +184,34 @@
                     echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#" style="text-decoration:none;">'.$i.'</a></li>';
                 }
             }
-        
+           
             //avanzar a la pagina siguiente
             if ($pagina != $total_paginas){
                 $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina + 1)."'";
                     echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>';
             }
-            //avanza 5 paginas de la pagina actual
-            if(($pagina + 5) < $total_paginas){
+             //avanza 5 paginas de la pagina actual
+             if(($pagina + 5) < $total_paginas){
                 $var = "'".$tipoP."','".$MarcasP."','".$MaterialP."','".$FormasP."','".$ColoresP."','".($pagina + 5)."'";
                 echo '<li><a onclick="javascript:MoverPaginacion('.$var.');return false;" href="#"><span class="glyphicon glyphicon-chevron-right"></span><span class="glyphicon glyphicon-chevron-right"></span></a></li>';
             }
-            echo '</ul></div></div>';
-        }   
+            echo '</ul></div>';
+        }    
 ?>
 <?php }else{ ?>
-    <h2>No se encontraron registros.</h2>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">Validación</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">No existen registros en la base de datos.</div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 <?php } ?>
-

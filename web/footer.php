@@ -3,10 +3,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="footer-col col-md-4">
-					<h2>Ubicación</h2>
-					<p><?=$dt["ub.direccion"]?>
-					<br><?=$dt["ub.ciudad"]?>
-					<br><?=$dt["ub.telefono"]?></p>
+					
+					<div class="contact_info">
+						<div class="info_item">
+							<h2>Ubicación</h2>
+						</div>
+						<div class="info_item" >
+							<i class="glyphicon glyphicon-home" style="color: #fff;"></i>
+							<p><?=$dt["ub.ciudad"]?><br>
+							<?=$dt["ub.direccion"]?></p>
+						</div>
+						<div class="info_item" >
+							<i class="glyphicon glyphicon-earphone" style="color: #fff;"></i>
+							<p><?=$dt["ub.telefono"]?><br>
+							<?=$dt["gen.horario"]?><br>
+							<?=$dt["gen.horarioFDS"]?></p>
+						</div>
+					</div>
 				</div>
 				<div class="footer-col col-md-4">
 					<h2>Redes Sociales</h2>
@@ -17,7 +30,8 @@
 						<li>
 							<a href="<?=$dt["rs.instagram"]?>" target="_blank" class="social-icons-icon icon-sprite icon-sprite-48 icon-instagram-48"></a>
 						</li>
-						<li>
+
+						<!--li>
 							<a href="<?=$dt["rs.pinest"]?>" target="_blank" class="social-icons-icon icon-sprite icon-sprite-48 icon-pinterest-48"></a>
 						</li>
 						<li>
@@ -25,12 +39,21 @@
 						</li>
 						<li>
 							<a href="<?=$dt["rs.youtube"]?>" target="_blank" class="social-icons-icon icon-sprite icon-sprite-48 icon-youtube-48"></a>
-						</li>
+						</li-->
 					</ul>
 				</div>
 				<div class="footer-col col-md-4">
-					<h2>Contacto</h2>
-					<p><a href="optica.php#contacto" class="footer">Formulario de contacto aquí</a>.</p>
+					<div class="info_item">
+						<h2>Contacto</h2>
+					</div>
+					<div class="contact_info">
+						<div class="info_item" >
+								<i class="glyphicon glyphicon-envelope" style="color: #fff;"></i>
+								<p><?=$dt["em.mailAdmin1"]?><br>
+								Envíenos sus consultas en cualquier momento!<br>
+								<a href="optica<?= ($dt["gen.siExtencion"] == "S" ? ".php" : "" )?>#contacto" class="footer" style="color: #fff;">Formulario de contacto aquí</a>.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -45,3 +68,4 @@
 		</div>
 	</div>
 </footer>	
+<a class="to-top fixed" href="#"><i class="fa fa-long-arrow-up"></i></a>

@@ -71,7 +71,6 @@
 if(count($Dias) > 0){
 ?>
     <div class="row">
-        <div class="col-md-1"></div>
         <div class="col-md-3"  style="border-right: 1px solid #5a5a5a">
 
                 <div class="form-group">
@@ -104,10 +103,10 @@ if(count($Dias) > 0){
 
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-9">
             <!-- buscar -->
             <div id="busCliBox" class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-left">
                     <label class="label label-default" for="rut">RUT:</label>
                     <input type="text" <?= ($rutP != "0-0") ? 'value="'.$rutP.'"' : '' ?> <?= ($rutP != "0-0") ? 'disabled="disabled"' : '' ?> id="rut" class="form-control" name="rut" size="12" maxlength="12" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="00000000-K">
                     <input type="hidden" name="rutS" id="rutS" value="<?= $rutP ?>">
@@ -131,22 +130,22 @@ if(count($Dias) > 0){
             <div id="nueCliBox" >
                 <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-left">
                         <label class="label label-default" for="nombre">NOMBRE:</label>
                         <input type="text" id="nombre" class="form-control" name="nombre" size="255" maxlength="255" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese nombre completo">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-left">
                         <label class="label label-default" for="direccion">DIRECCIÓN:</label>
                         <input type="text" id="direccion" class="form-control" name="direccion" size="255" maxlength="255" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese su dirección">
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-left">
                         <label class="label label-default" for="fono">TELÉFONO:</label>
                         <input type="text" id="fono" class="form-control fono" name="fono" size="25" maxlength="25" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese un n° telefónico">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-left">
                         <label class="label label-default" for="mail">E-MAIL:</label>
                         <input type="text" id="mail" class="form-control" name="mail" size="255" maxlength="255" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ingrese un E-Mail">
                     </div>
@@ -164,7 +163,6 @@ if(count($Dias) > 0){
                 </div>
             </div>
         </div>
-        <div class="col-md-1"></div>
     </div>
     <br>
 <?php
