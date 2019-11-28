@@ -73,7 +73,7 @@
                         $("#detDescripcion").html(res[0].DES_PRO);
                         $("#detMarca").html(res[0].DES_MAR);
                         $("#detMaterial").html(res[0].DES_MAT);
-                        $("#detImg").attr("src", "comun/muestraImagen.php?cod="+ res[0].CODIGO +"&img=2")
+                        $("#detImg").attr("src", "comun/muestraImagen.php?cod="+ res[0].CODIGO +"&mod=" + res[0].MODELO + "&img=2")
                         $("#detalleModal").modal();
                 }
         });

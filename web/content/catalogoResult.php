@@ -127,8 +127,8 @@
     
                 <div class="col-md-3 product-item ">
                     <div class="link-product">
-                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=1" />
-                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&img=2" />
+                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&mod=<?= $campos[$i]["MODELO"] ?>&img=1" />
+                        <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&mod=<?= $campos[$i]["MODELO"] ?>&img=2" />
                     </div>
                     <p class="product-name-results"><?= $campos[$i]["DES_MAR"] ?><p>
 					<p class="product-model-results"><?= $campos[$i]["MODELO"] ?><p>
