@@ -124,7 +124,7 @@
          echo '';
             //resultados
             for($i = 0; $i < $num_total_registros; $i++) { ?>   
-    
+				
                 <div class="col-md-3 product-item ">
                     <div class="link-product">
                         <img class="image-results img-responsive" src="comun/muestraImagen.php?cod=<?= $campos[$i]["CODIGO"] ?>&mod=<?= $campos[$i]["MODELO"] ?>&img=1" />
@@ -215,3 +215,5 @@
         <div class="col-md-1"></div>
     </div>
 <?php } ?>
+
+

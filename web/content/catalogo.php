@@ -93,9 +93,7 @@
             </div>
 
         </div>
-        <div class="row">
-            <div class="fb-comments" data-href="<?=$dt["rs.fb.comments"]?>" data-numposts="5"></div>
-        </div>
+        
     </div>
 </div>
 <br>
@@ -133,6 +131,10 @@
                         <?php /*<a onclick="javascript:VolverResult('<?= $tipoP ?>','<?= $MarcasP ?>','<?= $MaterialP ?>','<?= $FormasP ?>','<?= $ColoresP ?>','<?= $pagina ?>');return false;" href="#" class="btn btn-sistema" >volver</a> */ ?>
                     </div>
                 </div>
+				<hr class="linea">
+				<div class="row text-center">
+					<div id="fb-comments" class="fb-comments" data-href="<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" data-width="100%" data-numposts="3"></div>
+				</div>
             </div>
         </div>
     </div>
