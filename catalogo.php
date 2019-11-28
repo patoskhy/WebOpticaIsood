@@ -65,7 +65,20 @@
                 success:  function (response) {
                         //$("#catalogoResult").html(response);
                         res = JSON.parse(response)
-                        $("#detTitulo").html(res[0].DES_MAR);
+						var urlFacebook = "<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" + "?cod="+ res[0].CODIGO +"&mod=" + res[0].MODELO ;
+						var urlAttr = "app_id=&container_width=0&height=100&href=" + urlFacebook + "&locale=es_LA&numposts=5&sdk=joey&version=v5.0";
+                        var urlAttrFrame = "https://www.facebook.com/plugins/feedback.php?app_id&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df1dcc38d9ce967%26domain%3D<?=$_SERVER['HTTP_HOST']?>%26origin%3D<?=$_SERVER['HTTP_HOST']?>%252Ff2a9645f2fbdae8%26relation%3Dparent.parent&container_width=0&height=100&href=http%3A%2F%2F" + urlFacebook + "&locale=es_LA&numposts=5&sdk=joey&version=v5.0";
+						$("#detImg").attr("src", "comun/muestraImagen.php?cod="+ res[0].CODIGO +"&mod=" + res[0].MODELO + "&img=2")
+                        $("#fb-comments").attr("data-href", urlFacebook);
+						$("#fb-comments").attr("fb-iframe-plugin-query", urlAttr);
+						document.getElementById("fb-comments").childNodes[0].setAttribute("style","vertical-align: bottom; width: 100%; height: 315px;");
+						document.getElementById("fb-comments").childNodes[0].childNodes[0].setAttribute("style","border: none; visibility: visible; width: 100%; height: 315px;overflow: scroll;");
+						document.getElementById("fb-comments").childNodes[0].childNodes[0].setAttribute("src",urlAttrFrame);
+						document.getElementById("fb-comments").childNodes[0].childNodes[0].setAttribute("scrolling","yes");
+                        
+						console.log(document.getElementById("fb-comments").childNodes[0].childNodes[0].contentWindow.postMessage('<p>a<\p>', "*"));
+						
+						$("#detTitulo").html(res[0].DES_MAR);
                         $("#detCodigo").html(res[0].CODIGO);
                         $("#detModelo").html(res[0].MODELO);
                         $("#detColor").html(res[0].DES_COL);
@@ -73,8 +86,9 @@
                         $("#detDescripcion").html(res[0].DES_PRO);
                         $("#detMarca").html(res[0].DES_MAR);
                         $("#detMaterial").html(res[0].DES_MAT);
-                        $("#detImg").attr("src", "comun/muestraImagen.php?cod="+ res[0].CODIGO +"&mod=" + res[0].MODELO + "&img=2")
-                        $("#detalleModal").modal();
+					
+						
+						$("#detalleModal").modal();
                 }
         });
     }
