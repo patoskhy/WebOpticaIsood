@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-sistema" name="enviar" id="enviar" value="Enviar">Enviar</button> 
+                <button type="button" class="btn btn-sistema btn-block" name="enviar" id="enviar" value="Enviar">Enviar</button> 
                 </div>
             </form>
         </div>
