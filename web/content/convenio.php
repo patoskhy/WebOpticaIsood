@@ -1,3 +1,22 @@
+<?php
+
+    $dt = parse_ini_file("./data.ini");
+    include("./sistemaWS/includes/phpdbc.min.php");
+    require_once("./sistemaWS/config/vars.php");
+
+    $config = new Vars($dt);
+    $db = new db();
+    $db->setConection($config->host, $config->usuario, $config->contrasenia, $config->bd, "PDO");
+    $db->conectar();
+
+    $SELECT = "SELECT ID,TITULO,DESCRIPCION,FOTO,VIGENCIA FROM brc_convenio_web ";
+  
+    $db->query($SELECT);
+    $data = $db->datos();
+    $num_total_registros = count($data);
+
+?>
+
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
     <div class="col-md-7 text-center heading-section ftco-animate">
         <hr class="linea">
@@ -5,78 +24,38 @@
     </div>
 </div>
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-caja18.png" class="img-responsive img-thumbnail"/>
+
+    <?php 
+    if($num_total_registros > 0){
+    
+        for($i = 0; $i < $num_total_registros; $i++) { ?>   
+                    
+            <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
+                <div class="media block-6 services d-block text-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="comun/muestraImagenConvenio.php?cod=<?=$data[$i]["ID"]?>" class="img-responsive img-thumbnail"/>
+                    </div>
+                    <div class="media-body p-2">
+                        <h3 class="heading"><?=ucfirst($data[$i]["TITULO"])?></h3>
+                        <p><?=ucfirst(mb_strtolower($data[$i]["DESCRIPCION"],'UTF-8'))?></p>
+                    </div>
+                </div>
             </div>
-            <div class="media-body p-2">
-                <h3 class="heading">Caja 18 de Septiembre</h3>
-                <p>Nuestra óptica ha realizado un convenio con la Caja de Compensación 18 se Septiembre. 
-                Con esto sus afiliados pueden acceder a lentes ópticos más económicos.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-cial.png" class="img-responsive img-thumbnail"/>
-            </div>
-            <div class="media-body p-2">
-                <h3 class="heading">CIAL Alimentos</h3>
-                <p>Nuestra óptica ha realizado un convenio con la empresa Cial Alimentos. 
-                Con esto sus trabajadores pueden acceder a lentes ópticos más económicos.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-lagranja.png" class="img-responsive img-thumbnail"/>
-            </div>
-            <div class="media-body p-2">
-                <h3 class="heading">I. Muni. La Granja</h3>
-                <p>Nuestra óptica ha realizado un convenio con el Dpto. de Adulto Mayor de la municipalidad de La Granja. 
-                Para así poder acercarnos a la comunidad y ofrecer lentes ópticos a precios accesibles para ellos.</p>
+        <?php } ?>
+    <?php } else { ?> 
+        <div class="col-md-10">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">Convenios</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">No existen convenios registrados en este momento. Si desea realizar un convenio con <?=$dt["gen.title"]?> comuníquese con nuestro personal especificado en la sección de contacto más abajo.</div>
+                        </div> 
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-cerronavia.png" class="img-responsive img-thumbnail"/>
-            </div>
-            <div class="media-body p-2">
-                <h3 class="heading">I. Muni. Cerro Navia</h3>
-                <p>Nuestra óptica ha realizado un convenio con el Dpto. de Adulto Mayor de la municipalidad de Cerro Navia. 
-                Para así poder acercarnos a la comunidad y ofrecer lentes ópticos a precios accesibles para ellos.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-sanjoaquin.png" class="img-responsive img-thumbnail"/>
-            </div>
-            <div class="media-body p-2">
-                <h3 class="heading">I. Muni. San Joaquín</h3>
-                <p>Nuestra óptica ha realizado un convenio con el Dpto. de Adulto Mayor de la municipalidad de san Joaquín. 
-                Para así poder acercarnos a la comunidad y ofrecer lentes ópticos a precios accesibles para ellos.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate ">
-        <div class="media block-6 services d-block text-center">
-            <div class="d-flex justify-content-center">
-                <img src="img/web/conv-qtanormal.png" class="img-responsive img-thumbnail"/>
-            </div>
-            <div class="media-body p-2">
-                <h3 class="heading">I. Muni. Quinta Normal</h3>
-                <p>Nuestra óptica ha realizado un convenio con el Dpto. de Adulto Mayor de la municipalidad de Quinta Normal. 
-                Para así poder acercarnos a la comunidad y ofrecer lentes ópticos a precios accesibles para ellos.</p>
-            </div>
-        </div>
-    </div>
+    <?php  }?> 
+   
 </div>
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
     <div class="col-md-7 text-center heading-section ftco-animate">

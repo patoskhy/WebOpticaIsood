@@ -49,40 +49,40 @@
 </div>
 <div class="fila justify-content-center ">
     <div class="ftco-animate zoom">
-        <a href="#"><img class="img-responsive" src="img/destacado/sol1.jpg" /></a>
+        <a href="#"><img class="img-responsive" src="img/destacado/sol8.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol3.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/sol9.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive  " src="img/destacado/sol4.jpg" /></a>
+        <a href="#"><img class="img-responsive  " src="img/destacado/sol10.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol7.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/sol11.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"> <img class="img-responsive " src="img/destacado/sol5.jpg" /></a>
+        <a href="#"> <img class="img-responsive " src="img/destacado/sol12.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/multi1.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/sol13.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/multi2.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/sol14.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-       <a href="#"> <img class="img-responsive " src="img/destacado/optico1.jpg" /></a>
+       <a href="#"> <img class="img-responsive " src="img/destacado/optico7.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico2.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/optico11.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico3.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/optico8.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico4.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/optico9.jpg" /></a>
     </div>
     <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico5.jpg" /></a>
+        <a href="#"><img class="img-responsive " src="img/destacado/optico10.jpg" /></a>
     </div>
 </div>  
 <br>
@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-sistema btn-block" name="enviar" id="enviar" value="Enviar">Enviar</button> 
+                <button type="button" class="btn btn-sistema" name="enviar" id="enviar" value="Enviar">Enviar</button> 
                 </div>
             </form>
         </div>

@@ -8,8 +8,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="navbar-brand" style="padding-top: 15px; padding-left:20px; padding-right:20px;">
-                    <img src="<?=$dt["gen.logo"]?>" height="18px" />
+                <span class="navbar-brand" style="padding-top: 15px; padding-left:20px; padding-right:75px;">
+                    <img src="<?=$dt["gen.logo"]?>" height="12px" />
                 </span>
             </div>
             <div id="navbar" class="navbar-collapse collapse navbar-ex1-collapse">
