@@ -966,15 +966,20 @@ footer .footer-below {
 }
 
 #loader {
-    display: block;
-    position: relative;
-    left: 45%;
-    top: 45%;
-    width: 150px;
-    height: 150px;
-    z-index: 99999;
-    background: url($logo) center center no-repeat;
-    background-size: 35%;
+     display: block;
+		position: relative;
+		left: 50%;
+		top: 50%;
+		width: 150px;
+		height: 150px;
+		margin: -75px 0 0 -75px;
+		border-radius: 50%;
+		border: 3px solid transparent;
+		border-top-color: #fff;
+
+		-webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+		animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+		z-index: 9998;
 }
 
 
@@ -983,14 +988,19 @@ footer .footer-below {
 @media only screen and (max-width: 767px) {
     #loader {
         display: block;
-        position: relative;
-        left: 30%;
-        top: 30%;
-        width: 150px;
-        height: 150px;
-        z-index: 99999;
-        background: url($logo) center center no-repeat;
-        background-size: 35%;
+		position: relative;
+		left: 50%;
+		top: 50%;
+		width: 150px;
+		height: 150px;
+		margin: -75px 0 0 -75px;
+		border-radius: 50%;
+		border: 3px solid transparent;
+		border-top-color: #fff;
+
+		-webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+		animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+		z-index: 9998;
     }
 }
 

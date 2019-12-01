@@ -161,7 +161,7 @@
             $(document).ready(function() {
                 setTimeout(function(){
                     $('body').addClass('loaded');
-                }, 600);
+                }, 1500);
                 counter();
                 contentWayPoint();
                 modalPromocion();
