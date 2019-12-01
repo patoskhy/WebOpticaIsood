@@ -48,9 +48,9 @@ body {
 /* Carousel base class */
 
 .carousel {
-    padding-top: 50px;
+    padding-top: 10px;
     height: 500px;
-    margin-bottom: 65px;
+    margin-bottom: 10px;
 }
 
 

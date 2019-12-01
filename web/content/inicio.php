@@ -15,6 +15,11 @@
     $SELECT = $SELECT . "FROM brc_codigos_web WHERE TIPO = 'MARCA' ";  
     $db->query($SELECT);
     $result = $db->datos();
+	
+	$SELECT ="SELECT ID,TITULO,FOTO,VIGENCIA FROM brc_destacados_web WHERE VIGENCIA = 'S' ";
+    $db->query($SELECT);
+    $data = $db->datos();
+    $num_total_registros = count($data);
 ?>
 
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
@@ -48,42 +53,33 @@
     </div>
 </div>
 <div class="fila justify-content-center ">
-    <div class="ftco-animate zoom">
-        <a href="#"><img class="img-responsive" src="img/destacado/sol8.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol9.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive  " src="img/destacado/sol10.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol11.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"> <img class="img-responsive " src="img/destacado/sol12.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol13.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/sol14.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-       <a href="#"> <img class="img-responsive " src="img/destacado/optico7.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico11.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico8.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico9.jpg" /></a>
-    </div>
-    <div class="col-md-3 ftco-animate zoom">
-        <a href="#"><img class="img-responsive " src="img/destacado/optico10.jpg" /></a>
-    </div>
+	<?php 
+    if($num_total_registros > 0){
+    
+        for($i = 0; $i < $num_total_registros; $i++) { ?>   
+            <div class="ftco-animate zoom">
+				<a href="#"> <img 
+					src="comun/muestraImagenDestacados.php?cod=<?=$data[$i]["ID"]?>" 
+					alt="<?=$data[$i]["TITULO"]?>" 
+					
+					class="img-responsive"/></a>
+			</div>
+        <?php } ?>
+    <?php } else { ?> 
+        <div class="col-md-10">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">Destacados</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">No existen productos destacados registrados en este momento.</div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php  }?> 
+   
+    
 </div>  
 <br>
 <div class="row fila no-gutters justify-content-center mb-5 pb-5">
@@ -182,7 +178,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-sistema" name="enviar" id="enviar" value="Enviar">Enviar</button> 
+                <button type="button" class="btn btn-sistema btn-block" name="enviar" id="enviar" value="Enviar">Enviar</button> 
                 </div>
             </form>
         </div>

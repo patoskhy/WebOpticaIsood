@@ -125,7 +125,7 @@ $dt = parse_ini_file("data.ini");
             $(document).ready(function() {
                 setTimeout(function(){
                     $('body').addClass('loaded');
-                }, 1000);
+                }, 600);
                 counter();
                 contentWayPoint();
             });

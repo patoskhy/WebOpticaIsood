@@ -25,19 +25,19 @@
 		function __construct($dt)
 		{
 			//DESARROLLO
-			/*
+			
 			$this->host = $dt["db.desa.host"];
 			$this->usuario = $dt["db.desa.usuario"];
 			$this->contrasenia = $dt["db.desa.contrasenia"];
 			$this->bd = $dt["db.desa.bd"]; 
-			*/
-			//PRODUCCION
 			
+			//PRODUCCION
+			/*
 			$this->host = $dt["db.prod.host"];
 			$this->usuario = $dt["db.prod.usuario"];
 			$this->contrasenia = $dt["db.prod.contrasenia"];
 			$this->bd = $dt["db.prod.bd"];
-			
+			*/
 			$this->cuenta = $dt["em.cuenta"];
 			$this->pass = $dt["em.pass"];
 			$this->hostMail = $dt["em.hostMail"];

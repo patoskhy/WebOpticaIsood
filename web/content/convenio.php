@@ -9,7 +9,7 @@
     $db->setConection($config->host, $config->usuario, $config->contrasenia, $config->bd, "PDO");
     $db->conectar();
 
-    $SELECT = "SELECT ID,TITULO,DESCRIPCION,FOTO,VIGENCIA FROM brc_convenio_web ";
+    $SELECT = "SELECT ID,TITULO,DESCRIPCION,FOTO,VIGENCIA FROM brc_convenio_web WHERE VIGENCIA = 'S'";
   
     $db->query($SELECT);
     $data = $db->datos();
