@@ -1,3 +1,17 @@
+<?php
+header('content-type:text/css');
+
+$est = parse_ini_file("../site-estilos.ini");
+
+$colorPrincipal = $est["color.principal"];
+$colorSecundario = $est["color.secundario"];
+$fechaNavbar = $est["imagen.navbar.flecha"];
+$logo = $est["imagen.logo"];
+
+
+
+echo <<<FINCSS
+
 body {
     margin: 0px;
     height: 100%;
@@ -141,7 +155,7 @@ footer h3 {
 
 footer .footer-above {
     padding-top: 50px;
-    background-color: #FF6000
+    background-color: $colorPrincipal;
 }
 
 footer .footer-col {
@@ -155,7 +169,7 @@ footer .footer-col>p>a {
 
 footer .footer-below {
     padding: 25px 0;
-    background-color: #CC4D00
+    background-color: $colorSecundario;
 }
 
 .btn-outline {
@@ -533,7 +547,7 @@ footer .footer-below {
 
 .product-item:hover {
     border: 0.5px solid #d7d7d7;
-    box-shadow: 1px 3px #ff7f32;
+    box-shadow: 1px 3px $colorPrincipal;
     /*border: 2px solid red;*/
 }
 
@@ -547,7 +561,7 @@ footer .footer-below {
     line-height: 1em;
     margin: 0px 0px;
     padding: 0px 0px 0px 0px;
-    color: #ff7f32;
+    color: $colorPrincipal;
     font-weight: bold;
     margin-top: 5px;
 }
@@ -640,7 +654,7 @@ footer .footer-below {
 .linea {
     top: 7px;
     left: 0px;
-    border-top: 2px solid rgba(255, 96, 0, 1)
+    border-top: 2px solid $colorPrincipal
 }
 
 .seccionProductos,
@@ -871,21 +885,21 @@ footer .footer-below {
     cursor: pointer;
     background-color: #000 \9;
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid #FF6000;
+    border: 2px solid $colorPrincipal;
     border-radius: 10px;
 }
 
 .navbar-inverse {
-    background-color: rgba(255, 96, 0, 1);
+    background-color: $colorPrincipal;
 }
 
 .navbar-inverse:hover {
-    background-color: rgba(255, 96, 0, 1);
-    border-bottom: 5px solid #CC4D00;
+    background-color: $colorPrincipal;
+    border-bottom: 5px solid $colorSecundario;
 }
 
 .navbar-inverse .navbar-toggle:focus {
-    background-color: #CC4D00;
+    background-color: $colorSecundario;
 }
 
 .navbar-inverse .navbar-brand {
@@ -908,7 +922,7 @@ footer .footer-below {
 
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>li>a:focus {
-    background: url(../img/web/background-arrow-navigation-isood.png) bottom center no-repeat;
+    background: url($fechaNavbar) bottom center no-repeat;
 }
 
 .navbar-inverse .navbar-nav>.active>a,
@@ -922,13 +936,13 @@ footer .footer-below {
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
     color: #ffffff;
-    background-color: rgba(255, 96, 0, 1);
+    background-color: $colorPrincipal;
 }
 
 .modal-danger .modal-header,
 .modal-danger .modal-footer {
-    border-color: #c23321;
-    background-color: #c23321;
+    border-color: $colorPrincipal;
+    background-color: $colorPrincipal;
     color: white;
 }
 
@@ -959,7 +973,7 @@ footer .footer-below {
     width: 150px;
     height: 150px;
     z-index: 99999;
-    background: url(../img/web/icono-isood2.png) center center no-repeat;
+    background: url($logo) center center no-repeat;
     background-size: 35%;
 }
 
@@ -975,7 +989,7 @@ footer .footer-below {
         width: 150px;
         height: 150px;
         z-index: 99999;
-        background: url(../img/web/icono-isood2.png) center center no-repeat;
+        background: url($logo) center center no-repeat;
         background-size: 35%;
     }
 }
@@ -1055,7 +1069,7 @@ footer .footer-below {
     top: 0;
     width: 51%;
     height: 100%;
-    background: #FF6000;
+    background: $colorPrincipal;
     z-index: 1000;
     -webkit-transform: translateX(0);
     /* Chrome, Opera 15+, Safari 3.1+ */
@@ -1124,7 +1138,7 @@ footer .footer-below {
 }
 
 .no-js h1 {
-    color: #FF6000;
+    color: $colorPrincipal;
 }
 
 #content {
@@ -1136,7 +1150,7 @@ footer .footer-below {
 
 .btn-sistema {
     color: #fff;
-    background-color: #ff7f32;
+    background-color: $colorPrincipal;
     border-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -1189,7 +1203,7 @@ footer .footer-below {
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
-    color: rgba(255, 96, 0, 1);
+    color: $colorPrincipal;
 }
 
 .heading-section h2 {
@@ -1516,7 +1530,7 @@ footer .footer-below {
 .to-top {
     background: #fff none repeat scroll 0 0;
     bottom: -150px;
-    color: #CC4D00;
+    color: $colorSecundario;
     display: block;
     font-size: 15px;
     height: 50px;
@@ -1531,17 +1545,17 @@ footer .footer-below {
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     border-radius: 100px;
-    border: 2px solid #CC4D00;
+    border: 2px solid $colorSecundario;
 }
 
 .to-top:hover {
-    background: #CC4D00 none repeat scroll 0 0;
+    background: $colorSecundario none repeat scroll 0 0;
     color: #fff;
 }
 
 .to-top:visited {
     background: #fff none repeat scroll 0 0;
-    color: #CC4D00;
+    color: $colorSecundario;
 }
 
 .contact_info .info_item {
@@ -1555,7 +1569,7 @@ footer .footer-below {
     top: 0;
     font-size: 20px;
     line-height: 24px;
-    color: #fa333f;
+    color: $colorPrincipal;
     font-weight: 600;
 }
 
@@ -1694,10 +1708,10 @@ footer .footer-below {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #ff7f32;
+    color: $colorPrincipal;
     text-decoration: none;
     background-color: #fff;
-    border: 1px solid #ff7f32;
+    border: 1px solid $colorPrincipal;
 }
 
 .pagination>.active>a,
@@ -1709,8 +1723,8 @@ footer .footer-below {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #ff7f32;
-    border-color: #ff7f32;
+    background-color: $colorPrincipal;
+    border-color: $colorPrincipal;
 }
 
 .pagination>li>a:hover,
@@ -1718,18 +1732,18 @@ footer .footer-below {
 .pagination>li>a:focus,
 .pagination>li>span:focus {
     z-index: 2;
-    color: #ff7f32;
+    color: $colorPrincipal;
     background-color: #eee;
-    border-color: #ff7f32;
+    border-color: $colorPrincipal;
 }
 
 .panel-default {
-    border-color: #ff7f32;
+    border-color: $colorPrincipal;
 }
 
 .panel-default>.panel-heading {
     color: #FFF;
-    background-color: #ff7f32;
+    background-color: $colorPrincipal;
     border-color: #ddd;
 }
 
@@ -1781,13 +1795,16 @@ footer .footer-below {
 }
 
 .link-detalle {
-    color: #ff7f32;
+    color: $colorPrincipal;
     text-decoration: none;
     background-color: #fff;
 }
 
 .link-detalle:hover {
-    color: #ff7f32;
+    color: $colorPrincipal;
     text-decoration: none;
     background-color: #fff;
 }
+
+FINCSS;
+?>

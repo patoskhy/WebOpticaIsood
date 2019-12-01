@@ -172,10 +172,10 @@ if(count($Dias) > 0){
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">Validación</div>
+                <div class="panel-heading">Atención Oftalmológica</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12">No existen registros en la base de datos.</div>
+                            <div class="col-md-12">No existen horas registradas en la base de datos.</div>
                         </div> 
                     </div>
                 </div>

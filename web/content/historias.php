@@ -20,7 +20,7 @@
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
     <div class="col-md-7 text-center heading-section ftco-animate">
         <hr class="linea">
-        <span class="subheading">Historias sobre <?=$dt["gen.title"]?>/span>
+        <span class="subheading">Historias sobre <?=$dt["gen.title"]?></span>
     </div>
 </div>
 <div class="fila no-gutters justify-content-center mb-5 pb-5">
