@@ -6,7 +6,7 @@
     if (!ISSET($_GET["marca"])) {
         $_GET["marca"] = "ALL";
     }
-    include("sistemaWS/includes/phpdbc.min.php");
+    include_once("sistemaWS/includes/phpdbc.min.php");
     require_once("sistemaWS/config/vars.php");
 
     $config = new Vars($dt);

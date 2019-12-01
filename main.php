@@ -1,5 +1,27 @@
 <?php 
-$dt = parse_ini_file("data.ini");
+	if(isset($_COOKIE['current']))
+	{ 
+		setcookie('current', $_COOKIE['current'] + 1, time() + 60); 
+		$current = 'SI'; 
+	} 
+	else 
+	{ 
+		setcookie('current', 1, time() + 60); 
+		$current = 'NO';  
+	} 
+	$dt = parse_ini_file("data.ini");
+    include_once("sistemaWS/includes/phpdbc.min.php");
+    require_once("sistemaWS/config/vars.php");
+
+    $config1 = new Vars($dt);
+    $db1 = new db();
+    $db1->setConection($config1->host, $config1->usuario, $config1->contrasenia, $config1->bd, "PDO");
+    $db1->conectar();
+
+    $SELECT = "SELECT ID, FOTO, VALIDEZ FROM brc_promociones_web WHERE VIGENCIA = 'S' AND PRINCIPAL = 'S'";  
+    $db1->query($SELECT);
+    $promo = $db1->datos();
+	$num_total_registros_promo = count($promo);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,17 +66,19 @@ $dt = parse_ini_file("data.ini");
         <?php include_once("web/footer.php");?>
         <div class="modal modal-danger fade" id="myModal" >
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content  text-center">
                     <div id="modColHeader" class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 id="modTitulo" class="modal-title"></h4>
                     </div>
-                    <div id="modColBody" class="modal-body" style="background-color: white !important; color: black !important">
-                        <p id="modBody"></p>
+                    <div id="modColBody"  style="background-color: white !important; color: black !important">
+                        <div align="center" id="modBody"></div>
                     </div>
                 </div> 
             </div>
         <div>
+		
+		
         <script src="js/ie-emulation-modes-warning.js?v=<?php echo time();?>"></script>
         <script src="js/jquery.min.js?v=<?php echo time();?>"></script>
         <script src="js/slick.js?v=<?php echo time();?>"></script>
@@ -120,7 +144,19 @@ $dt = parse_ini_file("data.ini");
                 } , { offset: '95%' } );
             };
             
-            
+            var modalPromocion = function() {
+				if(<?= $num_total_registros_promo?> > 0){
+					if ('<?= $current?>' == 'NO') {
+						var id = '<?=$promo[0]["ID"]?>';
+						var titulo = '<?=ucfirst($promo[0]["VALIDEZ"])?>';
+						$("#modTitulo").html(titulo);
+						var body = '<img src="comun/muestraImagenPromocion.php?cod=' + id + '" class="img-responsive">';
+						$("#modBody").html(body);
+						$("#myModal").modal("toggle");
+					}
+				}
+				
+			};
 
             $(document).ready(function() {
                 setTimeout(function(){
@@ -128,7 +164,10 @@ $dt = parse_ini_file("data.ini");
                 }, 600);
                 counter();
                 contentWayPoint();
+                modalPromocion();
+
             });
+			
 		
         </script>
     </body>

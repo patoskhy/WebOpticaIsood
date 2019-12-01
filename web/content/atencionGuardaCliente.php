@@ -1,6 +1,6 @@
 <?php
     $dt = parse_ini_file("../../data.ini");
-    include("../../sistemaWS/includes/phpdbc.min.php");
+    include_once("../../sistemaWS/includes/phpdbc.min.php");
     require_once("../../sistemaWS/config/vars.php");
 
     $diaP = "";
